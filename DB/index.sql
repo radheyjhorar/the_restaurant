@@ -10,10 +10,10 @@ CREATE TABLE IF NOT EXISTS customers (
 
 -- Create Products Table
 CREATE TABLE IF NOT EXISTS products (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  p_name VARCHAR(20) NOT NULL,
-  p_price DECIMAL(10, 2) NOT NULL,
-  p_ingredients VARCHAR(100)
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  name VARCHAR(20) NOT NULL,
+  price DECIMAL(10, 2) NOT NULL,
+  ingredients VARCHAR(100)
 )
 
 

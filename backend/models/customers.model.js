@@ -43,7 +43,7 @@ const CustomerModels = {
       const query = `INSERT INTO customers (name, mobile, email, address) VALUES (?, ?, ?, ?)`;
       const [rows] = await DB.query(query, customer);
       console.log('Customer added successfully!');
-      console.log(`Effected ${rows.affectedRows} rows`)
+      console.log(`Effected ${rows.affectedRows} row`)
       return rows;
     } catch (error) {
       console.error('Error adding customer:', error);
@@ -55,7 +55,6 @@ const CustomerModels = {
     try {
       const query = `UPDATE customers SET? WHERE id = '${id}'`;
       const [rows] = await DB.query(query, updatedData);
-      console.log(`Customer updated successfully!`);
       console.log(`Effected ${rows.affectedRows} rows`)
       return rows;
     } catch (error) {

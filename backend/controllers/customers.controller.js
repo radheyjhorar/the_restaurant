@@ -1,4 +1,3 @@
-const DB = require('../DB/connection');
 
 // require Model
 const CustomerModels = require('../models/customers.model');
@@ -56,14 +55,14 @@ const updateCust = async (req, res) => {
   if (data) {
     res.status(201).send('Customer updated successfully!');
   } else {
-    res.status(500).send('Internal Server Error');
+    res.status(500).send('Product not found!');
   }
 }
 
 // Delete customer by ID
-const deleteCust = (req, res) => {
+const deleteCust = async (req, res) => {
   const id = req.params.id;
-  const data = CustomerModels.deleteOne(id);
+  const data = await CustomerModels.deleteOne(id);
   if (data) {
     res.status(200).send('Customer deleted successfully!');
   } else {
@@ -72,13 +71,24 @@ const deleteCust = (req, res) => {
 }
 
 // Delete many customers by id
- const deleteManyCust = (req, res) => {
+ const deleteManyCust = async (req, res) => {
   const ids = req.body;
-  const data = CustomerModels.deleteMany(ids);
+  const data = await CustomerModels.deleteMany(ids);
   if (data) {
     res.status(200).send('Customers deleted successfully!');
   } else {
     res.status(500).send('Internal Server Error');
+  }
+}
+
+// Search customers by name
+ const searchCustByName = async (req, res) => {
+  const name = req.params.name;
+  const data = await CustomerModels.searchByName(name);
+  if (data) {
+    res.status(200).send(data);
+  } else {
+    res.status(500).send('No customers found');
   }
 }
 
@@ -92,5 +102,6 @@ module.exports = {
   updateCust,
   deleteCust,
   deleteManyCust,
-  
+  searchCustByName,
+
 };

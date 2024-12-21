@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const DB = require('../DB/connection');
 
 // require controllers
 const customersController = require('../controllers/customers.controller')
@@ -25,6 +24,9 @@ router.delete('/:id', customersController.deleteCust);
 
 // Delete many customers by id
 router.delete('/', customersController.deleteManyCust);
+
+// Search customers by name
+router.get('/name/:name', customersController.searchCustByName);
 
 
 module.exports = router;
