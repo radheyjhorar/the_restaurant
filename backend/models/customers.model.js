@@ -9,7 +9,7 @@ const CustomerModels = {
       const [rows] = await DB.query("SELECT * FROM customers");
       return rows;
     } catch (error) {
-      console.log(error)
+      console.log("Internal server error!", error)
     }
   },
 
@@ -20,7 +20,7 @@ const CustomerModels = {
       const [rows] = await DB.query(query);
       return rows;
     } catch (error) {
-      console.error(error);
+      console.error("Internal server error!", error);
     }
   },
 
@@ -42,7 +42,6 @@ const CustomerModels = {
     try {
       const query = `INSERT INTO customers (name, mobile, email, address) VALUES (?, ?, ?, ?)`;
       const [rows] = await DB.query(query, customer);
-      console.log('Customer added successfully!');
       console.log(`Effected ${rows.affectedRows} row`)
       return rows;
     } catch (error) {
@@ -67,7 +66,6 @@ const CustomerModels = {
     try {
       const query = `DELETE FROM customers WHERE id = '${id}'`;
       const [rows] = await DB.query(query);
-      console.log(`Customer deleted successfully!`);
       console.log(`Effected ${rows.affectedRows} rows`)
       return rows;
     } catch (error) {
@@ -75,7 +73,7 @@ const CustomerModels = {
     }
   },
 
-  // Delete many customers by ID
+  // Delete many customers by IDs
   deleteMany: async (ids) => {
     try {
       const query = `DELETE FROM customers WHERE id IN (?)`;
@@ -95,7 +93,7 @@ const CustomerModels = {
       const [rows] = await DB.query(query);
       return rows;
     } catch (error) {
-      console.error('Error searching customers:', error);
+      console.error('Internal server error:', error);
     }
   },
 

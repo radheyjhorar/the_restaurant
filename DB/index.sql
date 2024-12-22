@@ -21,7 +21,9 @@ CREATE TABLE IF NOT EXISTS products (
 CREATE TABLE IF NOT EXISTS orders (
   id INT PRIMARY KEY AUTO_INCREMENT,
   customer_id INT NOT NULL,
-  ordered_item varchar(100) NOT NULL,
-  total_price DECIMAL(10, 2) NOT NULL,
-  FOREIGN KEY (customer_id) REFERENCES customers(id)
+  product_id INT NOT NULL,
+  total_amount DECIMAL(10, 2) NOT NULL,
+  order_date DATE,
+  FOREIGN KEY (customer_id) REFERENCES customers(id),
+  FOREIGN KEY (product_id) REFERENCES products(id)
 )

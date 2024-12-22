@@ -1,8 +1,9 @@
 const express = require("express");
 
 // Require Routes
-const customerRoute = require('./routes/customer.route');
-const productRoute = require('./routes/product.route');
+const customerRoutes = require('./routes/customer.route');
+const productRoutes = require('./routes/product.route');
+const orderRoutes = require('./routes/order.route');
 
 const app = express();
 const PORT = 1212;
@@ -16,8 +17,9 @@ app.use(express.json());
 // })
 
 // Route to handle API requests
-app.use('/api/customers', customerRoute);
-app.use('/api/products', productRoute);
+app.use('/api/customers', customerRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/orders', orderRoutes);
 
 
 app.listen(PORT, () => {

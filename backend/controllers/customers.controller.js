@@ -9,7 +9,7 @@ const getAllCust = async (req, res) => {
   if (data) {
     res.status(200).send(data);
   } else {
-    res.status(500).send('No customers found');
+    res.status(500).send('No customers found!');
   }
 }
 
@@ -43,7 +43,7 @@ const addOneCust = async (req, res) => {
   if (data) {
     res.status(201).send('Customer added successfully!');
   } else {
-    res.status(500).send('Internal Server Error');
+    res.status(500).send('Failed to add Customer!');
   }
 }
 
@@ -66,7 +66,7 @@ const deleteCust = async (req, res) => {
   if (data) {
     res.status(200).send('Customer deleted successfully!');
   } else {
-    res.status(500).send('Internal Server Error');
+    res.status(500).send('Order not found!');
   }
 }
 
@@ -77,7 +77,7 @@ const deleteCust = async (req, res) => {
   if (data) {
     res.status(200).send('Customers deleted successfully!');
   } else {
-    res.status(500).send('Internal Server Error');
+    res.status(500).send('Customers not found!');
   }
 }
 
@@ -88,7 +88,7 @@ const deleteCust = async (req, res) => {
   if (data) {
     res.status(200).send(data);
   } else {
-    res.status(500).send('No customers found');
+    res.status(500).send('No customers found!');
   }
 }
 
