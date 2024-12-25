@@ -10,7 +10,8 @@ const ProductsController = {
   getAllProd: async (req, res) => {
     const data = await ProductsModel.getAll();
     if (data) {
-      res.status(200).send(data);
+      // res.status(200).send(data);
+      res.render('pages/product/productList', { data } );
     } else {
       res.status(500).send('No products found');
     }
@@ -21,7 +22,8 @@ const ProductsController = {
     const id = parseInt(req.params.id);
     const data = await ProductsModel.getOne(id);
     if (data) {
-      res.status(200).send(data);
+      // res.status(200).send(data);
+      res.render('pages/product/productLanding', { data });
     } else {
       res.status(404).send('Product not found');
     }

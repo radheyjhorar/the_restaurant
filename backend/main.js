@@ -5,16 +5,19 @@ const customerRoutes = require('./routes/customer.route');
 const productRoutes = require('./routes/product.route');
 const orderRoutes = require('./routes/order.route');
 
+const pageRoutes = require('./routes/pages.routes');
+
 const app = express();
 const PORT = 1212;
 
+// Set the view engine to ejs
+app.set('view engine', 'ejs')
+app.use(express.static(__dirname));
+
 app.use(express.json());
 
-
-// // For testing purposes
-// app.get('/', (req, res) => {
-//   res.send("Hello world!")
-// })
+// Pages Route
+app.use('/api/page', pageRoutes);
 
 // Route to handle API requests
 app.use('/api/customers', customerRoutes);

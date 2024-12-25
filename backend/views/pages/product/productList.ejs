@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../../partials/head'); %>
+</head>
+
+<body class="container">
+
+  <header class="main-header">
+    <div class="container">
+      <%- include('../../partials/header'); %>
+    </div>
+  </header>
+
+  <main>
+    <div>
+      <h1>Product list page</h1>
+      <p>Welcome to templating using EJS</p>
+      <section class="section-products">
+        <div class="container">
+          <div class="row">
+            <% data.forEach((product, index)=> { %>
+
+              <!-- Single Product -->
+              <div class="col-md-6 col-lg-4 col-xl-3">
+                <div id=<%=index+1 %> class="single-product">
+                  <div class="part-1">
+                    <ul>
+                      <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                      <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                      <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                      <li><a href="#"><i class="fas fa-expand"></i></a></li>
+                    </ul>
+                  </div>
+                  <div class="part-2">
+                    <h3 class="product-title">
+                      <%= product.name %>
+                    </h3>
+                    <h4 class="product-price">₹<%= product.price %>
+                    </h4>
+                  </div>
+                </div>
+              </div>
+
+              <% }); %>
+
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+    </div>
+  </main>
+
+  <footer>
+    <%- include('../../partials/footer'); %>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/4c13c2293f.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

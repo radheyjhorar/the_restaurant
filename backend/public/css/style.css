@@ -1,0 +1,54 @@
+
+:root {
+  --primary-color: #FFB300;
+  --secondary-color: #AEEA00;
+  --third-color: #FFEB3B;
+  --fourth-color: #76ff03;
+  --fifth-color: #FF6F20;
+  --black: #000000;
+}
+
+/* Header CSS */
+
+
+.main-header {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: var(--fifth-color);
+}
+
+
+
+/* Body CSS */
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+a:hover {
+  color: currentColor;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  min-height: calc(100vh - 100px);
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  margin-top: auto;
+}

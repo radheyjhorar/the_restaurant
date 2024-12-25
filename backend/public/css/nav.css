@@ -1,0 +1,29 @@
+
+
+.main-header-nav {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0 !important;
+  color: white;
+}
+
+.navbar-brand {
+  background-color: var(--black);
+  border-radius: 100px;
+}
+
+.navbar-brand:hover {
+  background-color: var(--secondary-color);
+}
+
+.nav-item {
+  margin: 5px;
+}
+
+.navbar-nav>li>a {
+  padding: 4px;
+}
+
+.navbar-nav>li>a:hover {
+  color: var(--black);
+}
