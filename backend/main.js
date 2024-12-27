@@ -17,7 +17,7 @@ app.use(express.static(__dirname));
 app.use(express.json());
 
 // Pages Route
-app.use('/api/page', pageRoutes);
+app.use('/', pageRoutes);
 
 // Route to handle API requests
 app.use('/api/customers', customerRoutes);

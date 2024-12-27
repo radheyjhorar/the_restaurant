@@ -1,4 +1,6 @@
 
+
+
 :root {
   --primary-color: #FFB300;
   --secondary-color: #AEEA00;
@@ -6,6 +8,7 @@
   --fourth-color: #76ff03;
   --fifth-color: #FF6F20;
   --black: #000000;
+  --white: #ffffff;
 }
 
 /* Header CSS */
@@ -22,18 +25,18 @@
 
 
 /* Body CSS */
-a {
-  text-decoration: none;
-  color: currentColor;
-}
-
+a,
 a:hover {
-  color: currentColor;
   text-decoration: none;
+  color: currentColor;
 }
 
 ul {
   list-style-type: none;
+}
+
+.fw-bold {
+  font-weight: bold;
 }
 
 body {
@@ -44,11 +47,27 @@ body {
 
 main {
   min-height: calc(100vh - 100px);
+  margin-bottom: 60px;
 }
 
+
+/* Hide number input's inner button */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  /* margin: 0; */
+}
+
+
+
+
+
+/* Footer CSS */
 footer {
   position: absolute;
   width: 100%;
   left: 0;
   margin-top: auto;
+  background-color: var(--black);
+  padding-top: 10px;
 }

@@ -1,0 +1,11 @@
+
+
+.product-form-section {
+  min-width: 300px;
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.product-form-section > form > button {
+  float: right;
+}

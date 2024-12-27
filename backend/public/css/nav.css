@@ -1,19 +1,22 @@
-
-
 .main-header-nav {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0 !important;
-  color: white;
+  /* margin-bottom: 0 ; */
+  padding: 0;
 }
 
 .navbar-brand {
   background-color: var(--black);
   border-radius: 100px;
+  color: var(--white);
+  padding: 8px 20px;
+  transition: all 0.25s;
 }
 
 .navbar-brand:hover {
   background-color: var(--secondary-color);
+}
+
+.navbar-nav {
+  display: -webkit-inline-box;
 }
 
 .nav-item {
@@ -22,8 +25,30 @@
 
 .navbar-nav>li>a {
   padding: 4px;
+  transition: all 0.15s;
+  color: var(--white);
 }
 
 .navbar-nav>li>a:hover {
-  color: var(--black);
+  color: var(--secondary-color);
+  text-decoration: var(--secondary-color) 2px underline;
+}
+
+
+.log-regi-btn-main-div {
+  display: flex;
+  float: inline-end;
+  height: 50px;
+  align-items: center;
+  gap: 10px;
+}
+
+.log-regi-btn-main-div>div>button {
+  background-color: var(--black);
+  transition: all 0.2s;
+  color: var(--white);
+}
+
+.log-regi-btn-main-div>div>button:hover {
+  background-color: var(--secondary-color);
 }
