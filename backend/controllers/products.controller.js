@@ -1,8 +1,6 @@
 
 // Require Model
-
 const ProductsModel = require('../models/products.model');
-
 
 const ProductsController = {
 
@@ -10,8 +8,8 @@ const ProductsController = {
   getAllProd: async (req, res) => {
     const data = await ProductsModel.getAll();
     if (data) {
-      // res.status(200).send(data);
-      res.render('pages/product/productList', { data } );
+      // res.status(200).send(data);`
+      res.render('pages/product/productList', { data });
     } else {
       res.status(500).send('No products found');
     }

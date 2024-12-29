@@ -4,6 +4,7 @@ const express = require("express");
 const customerRoutes = require('./routes/customer.route');
 const productRoutes = require('./routes/product.route');
 const orderRoutes = require('./routes/order.route');
+const userRoutes = require('./routes/user.route');
 
 const pageRoutes = require('./routes/pages.routes');
 
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use('/', pageRoutes);
 
 // Route to handle API requests
+app.use('/api/user', userRoutes);
 app.use('/api/customers', customerRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);

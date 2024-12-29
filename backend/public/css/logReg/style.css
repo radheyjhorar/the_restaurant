@@ -13,3 +13,19 @@
 .register-form-section > form > button {
   float: right;
 }
+
+
+.register-form-section > form > div:nth-child(2) {
+  position: relative;
+}
+
+.register-form-section > form > div:nth-child(2) > input#inputMobile {
+  padding-left: 40px;
+}
+
+.register-form-section > form > div:nth-child(2) > span.inputMobileSpan {
+  position: absolute;
+  top: 32px;
+  left: 10px;
+  font-size: 15px;
+}
