@@ -17,10 +17,10 @@ const userControllers = {
   },
 
   // Get user by email and password
-  userLogin: async (req, res) => {
+  login: async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
-    const data = await userModele.userLogin(email, password);
+    const data = await userModele.login(email, password);
     if (data) {
       res.status(201).send(data);
     } else {

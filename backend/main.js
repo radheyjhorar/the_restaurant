@@ -1,4 +1,18 @@
 const express = require("express");
+const bp = require("body-parser");
+
+const app = express();
+const PORT = 1212;
+
+// Middleware to parse incoming form data
+app.use(bp.urlencoded({ extended: true }));
+app.use(bp.json());
+
+// Set the view engine to ejs
+app.set('view engine', 'ejs')
+app.use(express.static(__dirname));
+
+app.use(express.json());
 
 // Require Routes
 const customerRoutes = require('./routes/customer.route');
@@ -7,15 +21,6 @@ const orderRoutes = require('./routes/order.route');
 const userRoutes = require('./routes/user.route');
 
 const pageRoutes = require('./routes/pages.routes');
-
-const app = express();
-const PORT = 1212;
-
-// Set the view engine to ejs
-app.set('view engine', 'ejs')
-app.use(express.static(__dirname));
-
-app.use(express.json());
 
 // Pages Route
 app.use('/', pageRoutes);

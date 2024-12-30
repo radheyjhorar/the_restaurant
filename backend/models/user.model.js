@@ -15,7 +15,7 @@ const userModels = {
   },
 
   // Get user by email and password
-  userLogin: async (email, password) => {
+  login: async (email, password) => {
     try {
       const query = "SELECT * FROM users WHERE email =? AND password =?"
       const [rows] = await DB.query(query, [email, password]);

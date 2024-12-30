@@ -18,22 +18,22 @@
       <h1>User Login page</h1>
 
       <section class="login-form-section">
-        <form>
+        <form action="/api/user/login" method="post">
           <div class="form-group">
             <label for="inputEmailLog">Email address</label>
-            <input type="email" class="form-control" id="inputEmailLog" aria-describedby="emailHelpLog"
+            <input type="email" name="email" class="form-control" required id="inputEmailLog" aria-describedby="emailHelpLog"
               placeholder="Enter email">
             <small id="emailHelpLog" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
             <label for="inputPasswordLog">Password</label>
-            <input type="password" class="form-control" id="inputPasswordLog" placeholder="Password">
+            <input type="password" name="password" required class="form-control" id="inputPasswordLog" placeholder="Password">
           </div>
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="checkMeOutLog">
+            <input type="checkbox" onchange="loginOnChangeCheckInput()" class="form-check-input" id="checkMeOutLog">
             <label class="form-check-label" for="checkMeOutLog">Check me out</label>
           </div>
-          <button type="submit" class="btn btn-primary">Login</button>
+          <button type="submit" id="login-sbmt-btn" class="btn btn-primary">Login</button>
         </form>
       </section>
 
