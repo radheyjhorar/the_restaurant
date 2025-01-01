@@ -16,7 +16,6 @@
   <main>
     <div>
       <h1>Product list page</h1>
-      <p>Welcome to templating using EJS</p>
       <section class="section-products">
         <div class="container">
           <div class="row">
@@ -25,8 +24,11 @@
               <!-- Single Product -->
 
               <div class="col-md-6 col-lg-4 col-xl-3 plspcid">
-                <div id=<%=index+1 %> class="single-product">
+                <div id="product-<%=index+1 %>" class="single-product">
                   <div class="part-1">
+
+                    <img class="product-img" src="/public/product-images/<%= product.img_name %>.jpg" alt="<%= product.name %>" />
+
                     <ul>
                       <li><a class="pl-links" href="#"><i class="fas fa-shopping-cart"></i></a></li>
                       <li><a class="pl-links" href="#"><i class="fas fa-heart"></i></a></li>
