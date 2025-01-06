@@ -18,26 +18,31 @@
       <h1>Add new product page</h1>
 
       <section class="product-form-section">
-        <form>
+        <form action="/api/products" method="post" enctype="multipart/form-data">
           <div class="form-group">
             <label for="inputProductName">Product Name</label>
             <input type="text" name="name" class="form-control" id="inputProductName" placeholder="Enter product name">
           </div>
           <div class="form-group">
-            <label for="inputProductPrice">₹ Product Price</label>
+            <label for="inputProductPrice">Product Price</label>
+            <span class="addPrdctPriceInptSpan">₹</span>
             <input type="number" name="price" step="0.01" min="0" class="form-control" id="inputProductPrice"
-              placeholder="₹ Product Price">
+              placeholder="Product Price">
           </div>
           <div class="form-group">
             <label for="inputProductIngredients">Product Ingredients</label>
             <input type="text" name="ingredients" class="form-control" id="inputProductIngredients"
               placeholder="Product Ingredients">
           </div>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="checkProduct">
-            <label class="form-check-label" for="checkProduct">Check me out</label>
+          <div class="form-group">
+            <label for="inputProductIngredients">Add Product Images</label>
+            <input type="file" name="images[]" multiple class="form-control" id="inputProductImages">
           </div>
-          <button type="submit" class="btn btn-primary">Add Product</button>
+          <div class="form-check">
+            <input type="checkbox" onchange="showOrHideSbmtBtn('checkboxAddProduct', 'addPrdctSbmtBtn')" class="form-check-input" id="checkboxAddProduct">
+            <label class="form-check-label" for="checkboxAddProduct">Check me out</label>
+          </div>
+          <button type="submit" id="addPrdctSbmtBtn" disabled class="btn btn-primary">Add Product</button>
         </form>
       </section>
     </div>

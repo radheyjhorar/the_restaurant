@@ -25,14 +25,14 @@
                 <% const images=data[0].more_img_name.split(", ")%>
                 <% let mainImg = images[0] %>
                 <div class=" preview-pic tab-pane active" id="main-pic">
-                  <img src="/public/product-images/<%= mainImg %>.jpg" alt="<% mainImg %>" id="mainImg" />
+                  <img src="/public/product-images/<%= mainImg?mainImg:'noimage' %>.jpg" alt="<% mainImg %>" id="mainImg" />
               </div>
             </div>
             <ul class="preview-thumbnail nav nav-tabs">
               <% images.forEach((image, index)=> { %>
                 <li>
-                  <a style="cursor: pointer;" onclick="changeImg('<%= image %>')">
-                    <img src="/public/product-images/<%= image %>.jpg" />
+                  <a style="cursor: pointer;" onclick="changeImg('<%= image && image %>')">
+                    <img src="/public/product-images/<%= image?image:'noimage' %>.jpg" />
                   </a>
                 </li>
                 <% }) %>

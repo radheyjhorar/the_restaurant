@@ -9,3 +9,18 @@
 .product-form-section > form > button {
   float: right;
 }
+
+.product-form-section form > div.form-group {
+  position: relative;
+}
+
+.product-form-section .addPrdctPriceInptSpan {
+  position: absolute;
+  top: 32px;
+  left: 10px;
+  font-size: 15px;
+}
+
+.product-form-section form div.form-group #inputProductPrice {
+  padding-left: 25px;
+}

@@ -34,6 +34,7 @@ const ProductsController = {
     const data = await ProductsModel.addOne(values);
     if (data) {
       res.status(201).send("Product added successfully!");
+      console.log("Product added successfully!");
     } else {
       res.status(500).send('Failed to add product!');
     }

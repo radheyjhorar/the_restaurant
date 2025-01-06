@@ -1,6 +1,7 @@
 .main-header-nav {
   /* margin-bottom: 0 ; */
   padding: 0;
+  height: 50px;
 }
 
 .navbar-nav {
@@ -40,4 +41,56 @@
 
 .log-regi-btn-main-div>div>button:hover {
   background-color: var(--secondary-color);
+}
+
+
+
+/* Cart Button CSS */
+.cart-icon-div {
+  width: 15%;
+}
+
+.cart-icon-div>button.btn {
+  float: inline-end;
+  width: 120px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  height: 32px;
+  padding: 0;
+  border-radius: 30px;
+  overflow: hidden;
+  width: 80px;
+  border: 0;
+}
+
+.cart-icon-div>button.btn:hover a div {
+  gap: 10px;
+  margin-left: 58px;
+}
+
+.cart-icon-div>button>a>div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-left: -64px;
+  transition: all 0.6s;
+}
+
+.cart-icon-div>button>a>div>span {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cart-icon-div>button>a>div>span:nth-child(2) {
+  color: var(--primary-color);
+}
+
+.cart-icon-div>button>a>div>span:nth-child(3) {
+  color: #007fe1;
+}
+
+.cart-icon-div>button>a>div>img {
+  width: 35px;
+  height: 35px;
 }
