@@ -1,6 +1,8 @@
 
 
 
+-- Get Products 
+SELECT name, price, ingredients, image_name FROM `products` LEFT JOIN product_imgs ON products.id = product_imgs.image_name;
 
 
 -- Insert one data in table

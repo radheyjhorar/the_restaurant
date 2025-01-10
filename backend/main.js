@@ -1,5 +1,10 @@
 const express = require("express");
 const bp = require("body-parser");
+const multer = require("multer");
+const upload = require('./helpers/multer');
+const flash = require('connect-flash');
+
+var session = require('express-session');
 
 const app = express();
 const PORT = 1212;
@@ -10,9 +15,29 @@ app.use(bp.json());
 
 // Set the view engine to ejs
 app.set('view engine', 'ejs')
+
 app.use(express.static(__dirname));
 
 app.use(express.json());
+
+app.use(session({ cookie: { maxAge: 60000 }, 
+                  secret: 'woot',
+                  resave: false, 
+                  saveUninitialized: false}));
+
+app.use(flash());
+
+// multer test code
+app.post('/testuploadimg', upload.array('files'), (req, res) => {
+  if (!req.files) {
+    console.log(req)
+    return res.status(400).send('No files uploaded.');
+  }
+  res.send("Files uploaded successfully!");
+})
+
+app.use('/addProduct', express.static('/public/uploadedImages'));
+
 
 // Require Routes
 const customerRoutes = require('./routes/customer.route');

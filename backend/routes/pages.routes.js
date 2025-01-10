@@ -15,7 +15,7 @@ router.get('/login', (req, res) => {
 })
 
 router.get('/addProduct', (req, res) => {
-  res.render('pages/product/addProduct');
+  res.render('pages/product/addProduct', {message: ''});
 })
 
 

@@ -22,11 +22,10 @@
             <% data.forEach((product, index)=> { %>
 
               <!-- Single Product -->
-              <% const firstImg = product.more_img_name.split(", ")[0] %>
               <div class="col-md-6 col-lg-4 col-xl-3 plspcid">
                 <div id="product-<%=index+1 %>" class="single-product">
                   <div class="part-1">
-                    <img class="product-img" src="/public/product-images/<%= firstImg?firstImg:"noimage" %>.jpg" alt="<%= product.name %>" />
+                    <img class="product-img" src="/public/uploadedImages/<%= product.image_name?product.image_name:'noimage.jpg' %>" alt="<%= product.name %>" />
                     <ul>
                       <li><a class="pl-links" href="#"><i class="fas fa-shopping-cart"></i></a></li>
                       <li><a class="pl-links" href="#"><i class="fas fa-heart"></i></a></li>

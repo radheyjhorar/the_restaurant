@@ -1,6 +1,9 @@
+const express = require('express');
+const router = express.Router();
 
 // Require Model
 const ProductsModel = require('../models/products.model');
+const upload = require('../helpers/multer');
 
 const ProductsController = {
 
@@ -28,16 +31,30 @@ const ProductsController = {
   },
 
   // Add a new Product
-  addProd: async (req, res) => {
-    const { name, price, ingredients } = req.body;
-    const values = [name, price, ingredients];
-    const data = await ProductsModel.addOne(values);
-    if (data) {
-      res.status(201).send("Product added successfully!");
-      console.log("Product added successfully!");
-    } else {
-      res.status(500).send('Failed to add product!');
-    }
+  addProd: (req, res) => {
+    upload.array('images', 5)(req, res, async (err) => {
+      if (err) {
+        return res.status(400).send(err);
+      }
+
+      const { name, price, ingredients } = req.body;
+      const values = [name, price, ingredients];
+      const imgs = [];
+      req.files && req.files.map((file) => imgs.push(file.originalname));
+      const data = await ProductsModel.addOne(values, imgs);
+
+      if (data) {
+        // res.status(201).send("Product added successfully!");
+        // console.log("Product added successfully!");
+        // res.render('pages/product/addProduct', { uploadedFiles: req.files });
+        
+        // Alert message for client-side
+        req.flash('message', 'Product added successfully!');
+        res.redirect('/addProduct');
+      } else {
+        res.status(500).send('Failed to add product!');
+      }
+    })
   },
 
   // Add many products

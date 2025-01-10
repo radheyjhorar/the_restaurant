@@ -5,7 +5,9 @@ const ProductsModel = {
   // Get all products
   getAll: async () => {
     try {
-      const [rows] = await DB.query("SELECT * FROM products");
+      const query = 'SELECT products.id, products.name, products.price, products.ingredients, product_imgs.image_name FROM products LEFT JOIN product_imgs ON products.id = product_imgs.product_id GROUP BY products.id, products.name, products.price, products.ingredients;'
+      const [rows] = await DB.query(query);
+      console.log("Rows = ", rows);
       return rows;
     } catch (error) {
       console.log(error)
@@ -24,11 +26,19 @@ const ProductsModel = {
   },
 
   // Add a new product
-  addOne: async (product) => {
+  addOne: async (product, imgArr) => {
     try {
       const query = "INSERT INTO products (name, price, ingredients) VALUES (?, ?, ?)";
       const [rows] = await DB.query(query, product);
       console.log(`Affected ${rows.affectedRows} row`);
+
+      // Add images to the database using a separate query for each image
+      const imgQuery = `INSERT INTO product_imgs (product_id, image_name) VALUES (?, ?)`;
+      const rows1 = rows;
+      imgArr && await imgArr.forEach(async (img) => {
+        const [rows] = await DB.query(imgQuery, [rows1.insertId, img])
+        console.log(`Affected ${rows.affectedRows} row`);
+      })
       return rows;
     } catch (error) {
       console.error('Error adding product:', error);
