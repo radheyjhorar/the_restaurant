@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const updateProductById = require('../models/products.model').getOne;
 
 
 router.get('/', (req, res) => {
@@ -15,9 +16,17 @@ router.get('/login', (req, res) => {
 })
 
 router.get('/addProduct', (req, res) => {
-  res.render('pages/product/addProduct', {message: ''});
+  res.render('pages/product/addProduct', { message: '' });
 })
 
+router.get('/updateProduct/:id', async (req, res) => {
+  const id = parseInt(req.params.id);
+  const product = await updateProductById(id);
+  if (!product) {
+    return res.status(500).send('Product not found');
+  }
+  res.render('pages/product/updateProduct', { product: product });
+})
 
 
 module.exports = router;

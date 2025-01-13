@@ -2,7 +2,7 @@
 
 
 -- Get Products 
-SELECT name, price, ingredients, image_name FROM `products` LEFT JOIN product_imgs ON products.id = product_imgs.image_name;
+SELECT products.id, products.name, products.price, products.ingredients, product_imgs.image_name FROM products LEFT JOIN product_imgs ON products.id = product_imgs.product_id GROUP BY products.id, products.name, products.price, products.ingredients;
 
 
 -- Insert one data in table

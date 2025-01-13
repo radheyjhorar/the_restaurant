@@ -7,7 +7,7 @@ const ProductsModel = {
     try {
       const query = 'SELECT products.id, products.name, products.price, products.ingredients, product_imgs.image_name FROM products LEFT JOIN product_imgs ON products.id = product_imgs.product_id GROUP BY products.id, products.name, products.price, products.ingredients;'
       const [rows] = await DB.query(query);
-      console.log("Rows = ", rows);
+      // console.log("Rows = ", rows);
       return rows;
     } catch (error) {
       console.log(error)
@@ -18,8 +18,13 @@ const ProductsModel = {
   getOne: async (id) => {
     try {
       const query = `SELECT * FROM products WHERE id = '${id}'`;
+      const query1 = `SELECT image_name FROM product_imgs WHERE product_id = '${id}';`;
       const [rows] = await DB.query(query);
-      return rows;
+      if (rows) {
+        const [productImages] = await DB.query(query1);
+        rows[0].images = productImages;
+      }
+      return (rows);
     } catch (error) {
       console.log(error)
     }
