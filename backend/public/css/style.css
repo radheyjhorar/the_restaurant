@@ -12,6 +12,8 @@
   --black: #000000;
   --white: #ffffff;
   --white-dim: #ffffff88;
+  --green: #71ff7a;
+  --danger: rgb(220 53 69);
 }
 
 /* Header CSS */
@@ -64,8 +66,6 @@ input[type=number]::-webkit-inner-spin-button {
 form > div.form-group {
   margin-bottom: 18px;
 }
-
-
 
 
 

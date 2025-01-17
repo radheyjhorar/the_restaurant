@@ -24,3 +24,26 @@
 .product-form-section form div.form-group #inputProductPrice {
   padding-left: 25px;
 }
+
+
+.my-alert {
+  position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+    height: 20px !important;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: smaller;
+    letter-spacing: 1px;
+    background-color: var(--green);
+    border-radius: 0;
+}
+
+.my-alert-error {
+  background-color: var(--danger);
+  color: var(--white);
+}

@@ -20,11 +20,14 @@ app.use(express.static(__dirname));
 
 app.use(express.json());
 
-app.use(session({ cookie: { maxAge: 60000 }, 
-                  secret: 'woot',
-                  resave: false, 
-                  saveUninitialized: false}));
+// establish session
+app.use(session({
+  secret: 'mysecretkeytherestaurant',
+  saveUninitialized: true,
+  resave: true,
+}));
 
+// Configure flash middleware
 app.use(flash());
 
 // multer test code

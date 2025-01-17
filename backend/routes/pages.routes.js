@@ -16,7 +16,7 @@ router.get('/login', (req, res) => {
 })
 
 router.get('/addProduct', (req, res) => {
-  res.render('pages/product/addProduct', { message: '' });
+  res.render('pages/product/addProduct', { message: req.flash('info') });
 })
 
 router.get('/updateProduct/:id', async (req, res) => {

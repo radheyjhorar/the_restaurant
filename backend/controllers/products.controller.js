@@ -49,10 +49,11 @@ const ProductsController = {
         // res.render('pages/product/addProduct', { uploadedFiles: req.files });
         
         // Alert message for client-side
-        req.flash('message', 'Product added successfully!');
+        req.flash('info', 'success');
         res.redirect('/addProduct');
       } else {
-        res.status(500).send('Failed to add product!');
+        req.flash('info', 'failed');
+        // res.status(500).send('Failed to add product!');
       }
     })
   },
